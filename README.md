@@ -20,12 +20,18 @@ Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirr
 # **Install SAFEMCN**  
 Install the latest development version from Github.  
 If devtools package is not installed, first install it  
-`install.packages("devtools")  `
-`devtools::install_github("Zhengyuelab/SAFEMCN")  `
+```r
+install.packages("devtools")
+```
+```r
+devtools::install_github("Zhengyuelab/SAFEMCN")
+```
 
 # **Usage**  
-`library(SAFEMCN) ` 
-`results <- analyze_network_topology(  
+```r
+library(SAFEMCN)
+```r
+results <- analyze_network_topology(  
   work_dir = "./",  
   otu_file = "otu.csv",  
   r_threshold = 0.6,  
@@ -41,4 +47,5 @@ If devtools package is not installed, first install it
   plot_start_size = 11,  
   fit_formula = TRUE,
   fit_start_size = 11
-)`
+)
+```

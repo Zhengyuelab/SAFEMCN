@@ -49,3 +49,17 @@ results <- analyze_network_topology(
   fit_start_size = 11
 )
 ```
+work_dir: Specifies the working directory for reading input files and saving output results.  
+otu_file: The input ASV/OTU abundance table (typically a .csv file where rows are features and columns are samples).  
+r_threshold: The correlation coefficient threshold (|R|).   
+p_threshold: The significance level. Used to filter out non-significant correlations to ensure edge reliability.  
+cor_method: The algorithm for calculating correlations. Options include "spearman" (robust for non-normal distributions) or "pearson".  
+start_size & end_size: Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
+step_size: The increment for the gradient. A step of 1 means the analysis is performed for every single sample increment.  
+replicates: The number of bootstrapping iterations per sample size (e.g., 50 repeats) to generate a distribution of topological metrics and reduce stochastic error.  
+use_parallel: Enables multi-core parallel processing to significantly accelerate the heavy computation required for thousands of network reconstructions.  
+output_prefix: The prefix for exported files, including CSV data for subsequent Python-based AR1 analysis and visualization plots.  
+plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
+plot_start_size: The starting sample size for visualization, often used to exclude highly volatile results from very small sample sizes.  
+fit_formula: Logical; if TRUE, applies exponential fitting to the data to characterize the mathematical convergence of network properties.  
+fit_start_size: Specifies the sample size at which the fitting process begins to ensure a biologically meaningful and stable model.  

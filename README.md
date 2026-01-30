@@ -30,7 +30,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 # **Usage**  
 ```r
 library(SAFEMCN)
-```r
+
 results <- analyze_network_topology(  
   work_dir = "./",  
   otu_file = "otu.csv",  

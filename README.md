@@ -11,7 +11,7 @@ Customizable correlation methods (Spearman/Pearson) and significance thresholds 
 Iterative bootstrapping to track topological changes across sample-size gradients.
 The exponential fitting method is employed to fit the variation of network topology parameters with the sample size.
 
-**Install R/RStudio**
+**Install R/RStudio**  
 If you do not already have R/RStudio installed, follow these steps: 
 Install R
 Install RStudio

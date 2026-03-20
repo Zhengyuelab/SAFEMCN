@@ -63,12 +63,12 @@ start_size & end_size: Defines the range of the sample-size gradient (e.g., from
 step_size: The increment for the gradient. A step of 1 means the analysis is performed for every single sample increment.  
 replicates: The number of bootstrapping iterations per sample size (e.g., 50 repeats) to generate a distribution of topological metrics and reduce stochastic error.  
 use_parallel: Enables multi-core parallel processing to significantly accelerate the heavy computation required for thousands of network reconstructions.  
-output_prefix: The prefix for exported files, including CSV data for subsequent Python-based AR1 analysis and visualization plots.  
+output_prefix: The prefix for exported files, including data for subsequent AR1 analysis and visualization plots. 
 plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
 plot_start_size: The starting sample size for visualization, often used to exclude highly volatile results from very small sample sizes.  
 fit_formula: Logical; if TRUE, applies exponential fitting to the data to characterize the mathematical convergence of network properties.  
 fit_start_size: Specifies the sample size at which the fitting process begins to ensure a biologically meaningful and stable model.  
 predict_end_size: The target sample size for extrapolation. It uses the fitted model to predict where network metrics (like node saturation) will land at larger sample sizes (e.g., N=58).
-run_ar1: Logical; if TRUE, triggers an Autoregressive (AR1) model analysis to detect "Early Warning Signals" (EWS) of network transitions or stability thresholds.
+run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.
 ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.
 ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.

@@ -6,7 +6,7 @@ SAFEMCN:An R package implementing SAFEMCN, a sample-size-aware framework that in
 # **Overview**  
 SAFEMCN is a comprehensive R language software package designed to address the critical issue of sample size sufficiency in microbial ecology. It offers a reliable and statistically-based process for generating network topological parameters under different sample sizes through random sampling, and uses exponential fitting to describe the dynamic changes in network properties under the gradient of sample size. It can also use the fitting formula to calculate the network topological parameters for larger sample sizes. On this basis, the minimum effective sample size (Nmin) is determined through stability analysis based on AR1, ensuring the construction of a repeatable and effective microbial co-occurrence network.
 ![](https://github.com/Zhengyuelab/SAFEMCN/blob/main/logo.png) 
-
+<img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo.png" width="80" alt="SAFEMCN logo" />
 # **Main Features**  
 * From ASV quality control to network inference.  
 * Customizable correlation methods (Spearman/Pearson) and significance thresholds (R and p value).  

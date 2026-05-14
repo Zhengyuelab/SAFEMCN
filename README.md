@@ -16,6 +16,7 @@ SAFEMCN is a comprehensive R language software package designed to address the c
 If you do not already have R/RStudio installed, follow these steps:   
 1. Install [R](https://www.r-project.org/)
 2. Install [RStudio](https://posit.co/download/rstudio-desktop/)
+
 Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirror in Primary CRAN repository.
 
 # **Install SAFEMCN**  

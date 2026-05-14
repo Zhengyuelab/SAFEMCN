@@ -65,20 +65,20 @@ results <- analyze_network_topology(
 )
 ```
 * work_dir: Specifies the working directory for reading input files and saving output results.  
-* otu_file: The input ASV/OTU abundance table (typically a .csv file where rows are features and columns are samples).  
+* otu_file: Input OTU/ASV table (rows: features, cols: samples).  
 * r_threshold: The correlation coefficient threshold (|R|).   
-* p_threshold: The significance level. Used to filter out non-significant correlations to ensure edge reliability.  
-* cor_method: The algorithm for calculating correlations. Options include "spearman" (robust for non-normal distributions) or "pearson".  
+* p_threshold: The significance level(filters non-significant edges). 
+* cor_method: Correlation algorithm ("spearman" or "pearson").  
 * start_size & end_size: Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
-* step_size: The increment for the gradient. A step of 1 means the analysis is performed for every single sample increment.  
-* replicates: The number of bootstrapping iterations per sample size (e.g., 50 repeats) to generate a distribution of topological metrics and reduce stochastic error.  
-* use_parallel: Enables multi-core parallel processing to significantly accelerate the heavy computation required for thousands of network reconstructions.  
-* output_prefix: The prefix for exported files, including data for subsequent AR1 analysis and visualization plots. 
+* step_size: Increment of gradient (1 = single sample steps).  
+* replicates: The number of repeated sampling for each sample size (e.g., 50 repeats).
+* use_parallel: Enable multi-core parallel processing.
+* output_prefix: Prefix for exported result files. 
 * plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
-* plot_start_size: The starting sample size for visualization, often used to exclude highly volatile results from very small sample sizes.  
-* fit_formula: Logical; if TRUE, applies exponential fitting to the data to characterize the mathematical convergence of network properties.  
-* fit_start_size: Specifies the sample size at which the fitting process begins to ensure a biologically meaningful and stable model.  
-* predict_end_size: The target sample size for extrapolation. It uses the fitted model to predict where network metrics (like node saturation) will land at larger sample sizes (e.g., N=58).  
+* plot_start_size: Start sample size for plotting.  
+* fit_formula: Logical; if TRUE, Apply exponential fitting to parameters.  
+* fit_start_size:  Start sample size for fitting.  
+* predict_end_size: Target sample size for extrapolation.  
 * run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
 * ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
 * ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.  

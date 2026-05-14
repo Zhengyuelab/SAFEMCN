@@ -23,7 +23,6 @@ Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirr
 ```r
 #Install the latest development version from Github.
 #If devtools package is not installed, first install it.
-```r
 install.packages("devtools")
 ```
 ```r

@@ -8,7 +8,7 @@ SAFEMCN is a comprehensive R language software package designed to address the c
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo.png" width="70%" alt="SAFEMCN workflow" />
+  <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo.png" width="60%" alt="SAFEMCN workflow" />
 
 
 # **Main Features**  

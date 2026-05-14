@@ -19,9 +19,9 @@ If you do not already have R/RStudio installed, follow these steps:
 
 Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirror in Primary CRAN repository.
 
-# **Install SAFEMCN**  
+# **Install SAFEMCN** 
+Install the latest development version from Github.
 ```r
-#Install the latest development version from Github.
 #If devtools package is not installed, first install it.
 install.packages("devtools")
 ```

@@ -1,5 +1,5 @@
 # SAFEMCN <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo2.png" width="80" align="right" />
-# SAFEMCN
+
 SAFEMCN:An R package implementing SAFEMCN, a sample-size-aware framework that integrates rarefaction-style resampling with lag-1 autocorrelation (AR1) diagnostics to evaluate the reliability and reproducibility of microbial co-occurrence networks across sample-size gradients.
 
 

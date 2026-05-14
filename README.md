@@ -20,6 +20,10 @@ If you do not already have R/RStudio installed, follow these steps:
 Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirror in Primary CRAN repository.
 
 # **Install SAFEMCN** 
+Install microeco package from CRAN.
+```r
+install.packages("SAFEMCN")
+```
 Install the latest development version from Github.
 ```r
 #If devtools package is not installed, first install it.

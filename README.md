@@ -28,8 +28,6 @@ Install the latest development version from Github.
 ```r
 #If devtools package is not installed, first install it.
 install.packages("devtools")
-```
-```r
 devtools::install_github("Zhengyuelab/SAFEMCN")
 ```
 

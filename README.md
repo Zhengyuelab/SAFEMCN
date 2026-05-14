@@ -73,5 +73,5 @@ results <- analyze_network_topology(
 * fit_start_size: Specifies the sample size at which the fitting process begins to ensure a biologically meaningful and stable model.  
 * predict_end_size: The target sample size for extrapolation. It uses the fitted model to predict where network metrics (like node saturation) will land at larger sample sizes (e.g., N=58).  
 * run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
-ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
-ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.  
+* ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
+* ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.  

@@ -14,7 +14,7 @@ SAFEMCN is a comprehensive R language software package designed to address the c
 
 # **Install R/RStudio**  
 If you do not already have R/RStudio installed, follow these steps:   
-Install R  
+[Install R](https://www.r-project.org/)
 Install RStudio  
 Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirror in Primary CRAN repository.
 

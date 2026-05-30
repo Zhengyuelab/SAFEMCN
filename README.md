@@ -102,8 +102,8 @@ Based on the long-term time-series dataset from Station ALOHA, a gradient of mic
 </p>
 
 #### 📌 **Result Interpretation:**
-
-With increasing sample sizes, node numbers expanded toward saturation, whereas edge counts dramatically decreased before leveling off. Across these trajectories, the network topology parameters stabilized in a clear sequential order: nodes first, followed by edges, density, average degree, and lastly, diameter and average path length, reflecting a gradient of sensitivity to sample size.
+With increasing sample sizes, node numbers expanded toward saturation, whereas edge counts dramatically decreased before leveling off. Across these trajectories, the network topology parameters stabilized in a clear sequential order: node first, followed by edge, density, average degree, and lastly, diameter and average path length, reflecting a gradient of sensitivity to sample size.
+The Nmin threshold was further identified by the AR1 module of the SAFEMCN package. The rapid decrease and then rapid increase in the AR1 value indicated the emergence of the topological plateau, providing a basis to determine the critical point corresponding to N<sub>min</sub>. To provide a robust estimate, the final Nmin was calculated as the average of the N<sub>min</sub> derived from all six topological parameters, resulting in a value of 31 ± 5. This threshold marked the earlier sampling depth at which inferred topology became reproducible across resampling replicates and could be regarded as meeting a minimum level of statistical validity.
 
 #### **2.2 Exponential Fitting and Prediction**
 

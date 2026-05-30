@@ -88,5 +88,11 @@ results <- analyze_network_topology(
 #### **2.1 Aloha Dataset Example**
 
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/workflow.png" 
+       width="80%" 
+       alt="SAFEMCN workflow" />
+</p>
+
 
 #### **2.2 Exponential Fitting and Prediction**

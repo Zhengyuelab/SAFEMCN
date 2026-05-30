@@ -89,7 +89,7 @@ results <- analyze_network_topology(
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/test%20figure/ALOHA.png" 
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA.png" 
        width="80%" 
        alt="SAFEMCN analytical workflow" />
 </p>

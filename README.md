@@ -39,6 +39,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ```
 
 # **Usage**  
+### **Code Execution and Parameter Settings**
 ```r
 library(SAFEMCN)
 

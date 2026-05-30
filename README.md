@@ -100,7 +100,7 @@ Based on the long-term time-series dataset from Station ALOHA, a gradient of mic
 <p align="center">
   <b>Figure 2. Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient</b>
 </p>
-#### 📌 Result Interpretation
+📌 Result Interpretation： 
 With increasing sample sizes, node numbers expanded toward saturation, whereas edge counts dramatically decreased before leveling off. Across these trajectories, the network topology parameters stabilized in a clear sequential order: nodes first, followed by edges, density, average degree, and lastly, diameter and average path length, reflecting a gradient of sensitivity to sample size.
 
 #### **2.2 Exponential Fitting and Prediction**

@@ -91,8 +91,10 @@ results <- analyze_network_topology(
 <p align="center">
   <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/workflow.png" 
        width="80%" 
-       alt="SAFEMCN workflow" />
+       alt="SAFEMCN analytical workflow" />
 </p>
-
+<p align="center">
+  <b>Figure 1. SAFEMCN Analytical Workflow</b>
+</p>
 
 #### **2.2 Exponential Fitting and Prediction**

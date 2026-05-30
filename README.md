@@ -39,7 +39,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ```
 
 # **Usage**  
-### **1.Code Execution and Parameter Settings**
+### **1. Code Execution and Parameter Settings**
 ```r
 library(SAFEMCN)
 
@@ -84,4 +84,9 @@ results <- analyze_network_topology(
 * ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
 * ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
 
-### **2.Case Studies**
+### **2. Case Studies**
+#### **2.1 Aloha Dataset Example**
+
+
+
+#### **2.2 Exponential Fitting and Prediction**

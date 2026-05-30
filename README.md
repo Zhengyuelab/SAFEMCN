@@ -1,4 +1,4 @@
-# SAFEMCN <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo2.png" width="80" align="right" />
+# SAFEMCN <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/logo.png" width="80" align="right" />
 
 SAFEMCN : An R package implementing SAFEMCN, a sample-size-aware framework that integrates rarefaction-style resampling with lag-1 autocorrelation (AR1) analysisto evaluate the reliability and reproducibility of microbial co-occurrence networks across sample-size gradients.
 
@@ -7,7 +7,7 @@ SAFEMCN : An R package implementing SAFEMCN, a sample-size-aware framework that 
 *SAFEMCN* is a comprehensive R language software package designed to address the critical issue of sample size sufficiency in microbial ecology. It offers a reliable and statistically-based process for generating network topological parameters under different sample sizes through random sampling, and uses exponential fitting to describe the dynamic changes in network properties under the gradient of sample size. It can also use the fitting formula to calculate the network topological parameters for larger sample sizes. On this basis, the minimum effective sample size (N<sub>min</sub>) is determined through stability analysis based on AR1, ensuring the construction of a repeatable and effective microbial co-occurrence network.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Zhengyuelab/SAFEMCN/main/logo.png" 
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Workflow.png" 
        width="65%" 
        alt="Workflow of the SAFEMCN R package" />
 </p>
@@ -110,7 +110,7 @@ The N<sub>min</sub> threshold was further identified by the AR1 module of the *S
 To enable topology prediction when initial sampling was limited, the SAFEMCN package integrated a predictive module that coupled the AR1 analysis with curve fitting of network topology parameters. This functionality enables users to model the trajectories of network topological parameters as nonlinear functions varying with sample size using an exponential fitting model (). By fitting this model to observed data, the package extrapolates topological trajectories beyond the current sample-size range and computes AR1 coefficients on the fitted sequences to determine the predicted N<sub>min</sub>.
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Predicting_Nmin.png" 
-       width="65%" 
+       width="60%" 
        alt="Sample-size pre-estimation for microbial co-occurrence networks" />
 </p>
 <p align="center">

@@ -104,12 +104,11 @@ results <- analyze_network_topology(
 #### **2.2 Exponential Fitting and Prediction**
 
 
-<p align="center">
+<p align="center" style="margin-bottom: 5px;">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Predicting_Nmin.png" 
-       width="65%" 
+       width="55%" 
        alt="Sample-size pre-estimation for microbial co-occurrence networks" />
-</p>
-<p align="center">
+
+<p align="center" style="margin-top: 0; margin-bottom: 10px;">
   <b>Figure 3. Sample-size pre-estimation for microbial co-occurrence networks</b>
-</p>
 

@@ -110,7 +110,7 @@ The N<sub>min</sub> threshold was further identified by the AR1 module of the *S
 To enable topology prediction when initial sampling was limited, the SAFEMCN package integrated a predictive module that coupled the AR1 analysis with curve fitting of network topology parameters. This functionality enables users to model the trajectories of network topological parameters as nonlinear functions varying with sample size using an exponential fitting model (). By fitting this model to observed data, the package extrapolates topological trajectories beyond the current sample-size range and computes AR1 coefficients on the fitted sequences to determine the predicted N<sub>min</sub>.
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Predicting_Nmin.png" 
-       width="60%" 
+       width="50%" 
        alt="Sample-size pre-estimation for microbial co-occurrence networks" />
 </p>
 <p align="center">

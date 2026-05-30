@@ -1,6 +1,6 @@
 # *SAFEMCN* <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/logo.png" width="80" align="right" />
 
-**SAFEMCN** : An R package implementing SAFEMCN, a sample-size-aware framework that integrates rarefaction-style resampling with lag-1 autocorrelation (AR1) analysisto evaluate the reliability and reproducibility of microbial co-occurrence networks across sample-size gradients.
+**SAFEMCN** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
 
 
 # **Overview**  

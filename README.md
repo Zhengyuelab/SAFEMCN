@@ -91,21 +91,21 @@ results <- analyze_network_topology(
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA.png" 
        width="65%" 
-       alt="SAFEMCN analytical workflow" />
+       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>
 <p align="center">
-  <b>Figure 1. SAFEMCN Analytical Workflow</b>
+  <b>Figure 2. Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient</b>
 </p>
 
 #### **2.2 Exponential Fitting and Prediction**
 
 
 <p align="center">
-  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA.png" 
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Predicting_Nmin.png" 
        width="65%" 
-       alt="SAFEMCN analytical workflow" />
+       alt="Sample-size pre-estimation for microbial co-occurrence networks" />
 </p>
 <p align="center">
-  <b>Figure 1. SAFEMCN Analytical Workflow</b>
+  <b>Figure 3. Sample-size pre-estimation for microbial co-occurrence networks</b>
 </p>
 

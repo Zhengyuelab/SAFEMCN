@@ -39,7 +39,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ```
 
 # **Usage**  
-### **Code Execution and Parameter Settings**
+### **1.Code Execution and Parameter Settings**
 ```r
 library(SAFEMCN)
 
@@ -82,4 +82,6 @@ results <- analyze_network_topology(
 * predict_end_size: Target sample size for extrapolation.  
 * run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
 * ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
-* ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.  
+* ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
+
+### **2.Case Studies**

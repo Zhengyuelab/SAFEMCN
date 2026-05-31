@@ -12,8 +12,7 @@
        alt="Workflow of the SAFEMCN R package" />
 </p>
 <p align="center">
-  <b>Figure 1. Workflow of the SAFEMCN R package</b>
-</p>
+
 
 # **Main Features**  
 * From ASV quality control to network inference.  

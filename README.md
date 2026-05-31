@@ -31,10 +31,6 @@ Open RStudio -> Tools -> Global Options -> Packages, select the appropriate mirr
 Install SAFEMCN package from CRAN.
 ```r
 install.packages("SAFEMCN")
-```r
-
-```r
-install.packages("SAFEMCN")
 ```
 Install the latest development version from Github.
 ```r

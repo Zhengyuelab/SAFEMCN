@@ -15,8 +15,8 @@ The *SAFEMCN* R package is a standardized framework designed to determine the mi
 
 # **Main Features**  
 * Traces topological structure changes across a sample-size gradient using a rarefaction-curve approach.
-* The lag-1 autocorrelation (AR1) coefficient is calculated to determine the minimum effective sample size (Nmin) for network structure stability.
-* Extrapolates topological trajectories beyond the sample-size range via a three-parameter exponential model and uses lag-1 autocorrelation (AR1) coefficients on fitted sequences to predict Nmin.
+* The lag-1 autocorrelation (AR1) coefficient is calculated to determine the minimum effective sample size (N<sub>min</sub>) for network structure stability.
+* Extrapolates topological trajectories beyond the sample-size range via a three-parameter exponential model and uses lag-1 autocorrelation (AR1) coefficients on fitted sequences to predict N<sub>min</sub>.
 * Supports parallel computation for large-scale datasets by distributing iterations across multiple CPU cores.
 
 

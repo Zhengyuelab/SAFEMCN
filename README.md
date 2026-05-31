@@ -93,11 +93,9 @@ results <- analyze_network_topology(
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-test.png" 
        width="65%" 
-       alt="Variations in network topological parameters" />
+       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>
-<p align="center">
-  <b>Figure 2. Variations in network topological parameters</b>
-</p>
+
 
 #### 📌 **Result Interpretation:**
 With increasing sample sizes, node numbers expanded toward saturation, whereas edge counts dramatically decreased before leveling off. Across these trajectories, the network topology parameters stabilized in a clear sequential order: node first, followed by edge, density, average degree, and lastly, diameter and average path length, reflecting a gradient of sensitivity to sample size.  
@@ -107,6 +105,11 @@ The N<sub>min</sub> threshold was further identified by the AR1 module of the *S
 #### **2.2 Prediction of N<sub>min</sub>**
 To enable topology prediction when initial sampling was limited, the *SAFEMCN* package integrated a predictive module that coupled the AR1 analysis with curve fitting of network topology parameters. This functionality enables users to model the trajectories of network topological parameters as nonlinear functions varying with sample size using an exponential fitting model (). By fitting this model to observed data, the package extrapolates topological trajectories beyond the current sample-size range and computes AR1 coefficients on the fitted sequences to determine the predicted N<sub>min</sub>.
 
+<p align="center">
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-predicted.png" 
+       width="65%" 
+       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
+</p>
 
 #### 📌 **Result Interpretation:**
 By extrapolating node and edge trajectories via the fitted exponential model (Figs 3a–b), the AR1-based N<sub>min</sub> was successfully predicted under limited sampling. Crucially, the predicted N<sub>min</sub> tightly matched the empirical thresholds derived from the complete 58-sample dataset (node: 25 vs. 27 samples; edge: 29 vs. 28 samples). This minimal deviation validates the framework's reliability. Furthermore, networks constructed with sample sizes exceeding these predicted thresholds exhibited convergent and stable topological properties, such as network density and average path length (Figs 3c–d).  

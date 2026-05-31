@@ -106,7 +106,31 @@ Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient f
 
 #### **2.2 Prediction of N<sub>min</sub>**
 This part uses the ALOHA dataset as the sample data and employs the prediction module of *SAFEMCN* to predict Nmin.
+```r
+library(SAFEMCN)
 
+results <- analyze_network_topology(
+  otu_file = "otu.csv",
+  r_threshold = 0.6,
+  p_threshold = 0.05,
+  cor_method = "spearman",
+  start_size = 5,
+  end_size = 30,
+  step_size = 1,
+  replicates = 50,
+  use_parallel = TRUE,
+  output_prefix = "network_parameters",
+  plot_topology = TRUE,
+  plot_start_size = 11,
+  fit_formula = TRUE,
+  fit_start_size = 11,
+  predict_end_size = 58,
+  run_ar1 = TRUE,
+  ar1_input_file = "node_num_combined.csv",
+  ar1_windows = c(15)
+)
+
+```
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-predicted.png" 
        width="65%" 

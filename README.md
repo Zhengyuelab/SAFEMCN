@@ -98,7 +98,11 @@ results <- analyze_network_topology(
 
 
 #### 📌 **Result Interpretation:**
-The SAFEMCN package visualizes the variation of network topology parameters with sample size as a line graph, providing an intuitive representation of topological changes, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv) and saving them in a designated folder. Furthermore, the AR1 module of the SAFEMCN package takes these output files (e.g., node_num_original.csv) as input to identify the Nmin threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as Nmin, indicating the emergence of a topological plateau.
+The SAFEMCN package visualizes the variation of network topology parameters with sample size as a line graph, providing an intuitive representation of topological changes, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv) and saving them in a designated folder.   
+
+Furthermore, the AR1 module of the SAFEMCN package takes these output files (e.g., node_num_original.csv) as input to identify the Nmin threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as Nmin, indicating the emergence of a topological plateau.   
+
+Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and generates a scatter plot showing how the AR1 coefficient changes with sample size. Finally, the module also generates an AR1_min.csv file, which records the determined Nmin value and its corresponding AR1 value.
 
 #### **2.2 Prediction of N<sub>min</sub>**
 To enable topology prediction when initial sampling was limited, the *SAFEMCN* package integrated a predictive module that coupled the AR1 analysis with curve fitting of network topology parameters. This functionality enables users to model the trajectories of network topological parameters as nonlinear functions varying with sample size using an exponential fitting model (). By fitting this model to observed data, the package extrapolates topological trajectories beyond the current sample-size range and computes AR1 coefficients on the fitted sequences to determine the predicted N<sub>min</sub>.

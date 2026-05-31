@@ -95,10 +95,10 @@ Based on the long-term time-series dataset from Station ALOHA, a gradient of mic
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-test.png" 
        width="65%" 
-       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
+       alt="Variations in network topological parameters" />
 </p>
 <p align="center">
-  <b>Figure 2. Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient</b>
+  <b>Figure 2. Variations in network topological parameters</b>
 </p>
 
 #### 📌 **Result Interpretation:**

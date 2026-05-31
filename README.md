@@ -14,12 +14,11 @@ The *SAFEMCN* R package is a standardized framework designed to determine the mi
 
 
 # **Main Features**  
-* From ASV quality control to network inference.  
-* Customizable correlation methods (Spearman/Pearson) and significance thresholds (R and p value).  
-* Iterative bootstrapping to track topological changes across sample-size gradients.  
-* The exponential fitting method is employed to fit the variation of network topology parameters with the sample size.  
-* This fitting formula is used to predict the network topology parameters under large sample sizes.
-* The lag-1 autocorrelation (AR1) is calculated to determine the minimum effective sample size (N<sub>min</sub>) for network structure stability.
+* Traces topological structure changes across a sample-size gradient using a rarefaction-curve approach.
+* The lag-1 autocorrelation (AR1) coefficient is calculated to determine the minimum effective sample size (Nmin) for network structure stability.
+* Extrapolates topological trajectories beyond the sample-size range via a three-parameter exponential model and uses lag-1 autocorrelation (AR1) coefficients on fitted sequences to predict Nmin.
+* Supports parallel computation for large-scale datasets by distributing iterations across multiple CPU cores.
+
 
 # **Install R/RStudio**  
 If you do not already have R/RStudio installed, follow these steps:   

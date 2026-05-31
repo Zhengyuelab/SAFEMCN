@@ -43,12 +43,33 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 
 
 # **Usage**  
-### **1. Code Execution and Parameter Settings**
+### **1. Parameter Settings**
+* work_dir: Specifies the working directory for reading input files and saving output results.  
+* otu_file: Input OTU/ASV table (rows: features, cols: samples).  
+* r_threshold: The correlation coefficient threshold (|R|).   
+* p_threshold: The significance level(filters non-significant edges). 
+* cor_method: Correlation algorithm ("spearman" or "pearson").  
+* start_size & end_size: Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
+* step_size: Increment of gradient (1 = single sample steps).  
+* replicates: The number of repeated sampling for each sample size (e.g., 50 repeats).
+* use_parallel: Enable multi-core parallel processing.
+* output_prefix: Prefix for exported result files. 
+* plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
+* plot_start_size: Start sample size for plotting.  
+* fit_formula: Logical; if TRUE, Apply exponential fitting to parameters.  
+* fit_start_size:  Start sample size for fitting.  
+* predict_end_size: Target sample size for extrapolation.  
+* run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
+* ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
+* ar1_windows: Defines the sliding window sizes (e.g.,15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
+
+### **2. Case Studies**
+#### **2.1 Determination of N<sub>min</sub>**
+Based on the long-term time-series dataset from Station ALOHA, a gradient of microbial co-occurrence networks was constructed by varying the sample size from 11 to 58 with a step size of 1. As illustrated in Figure 2, key network topological features, including network nodes, edges, density, diameter, average path length, and average degree, exhibited distinct dynamic patterns with expanding sample sizes, based on which the minimum sample size (N<sub>min</sub>) required for reliable network construction was successfully determined via lag-1 autoregressive (AR1) coefficients.
 ```r
 library(SAFEMCN)
 
 results <- analyze_network_topology(
-  work_dir = "./",
   otu_file = "otu.csv",
   r_threshold = 0.6,
   p_threshold = 0.05,
@@ -69,28 +90,6 @@ results <- analyze_network_topology(
   ar1_windows = c(10, 15)
 )
 ```
-* work_dir: Specifies the working directory for reading input files and saving output results.  
-* otu_file: Input OTU/ASV table (rows: features, cols: samples).  
-* r_threshold: The correlation coefficient threshold (|R|).   
-* p_threshold: The significance level(filters non-significant edges). 
-* cor_method: Correlation algorithm ("spearman" or "pearson").  
-* start_size & end_size: Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
-* step_size: Increment of gradient (1 = single sample steps).  
-* replicates: The number of repeated sampling for each sample size (e.g., 50 repeats).
-* use_parallel: Enable multi-core parallel processing.
-* output_prefix: Prefix for exported result files. 
-* plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
-* plot_start_size: Start sample size for plotting.  
-* fit_formula: Logical; if TRUE, Apply exponential fitting to parameters.  
-* fit_start_size:  Start sample size for fitting.  
-* predict_end_size: Target sample size for extrapolation.  
-* run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
-* ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
-* ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
-
-### **2. Case Studies**
-#### **2.1 Determination of N<sub>min</sub>**
-Based on the long-term time-series dataset from Station ALOHA, a gradient of microbial co-occurrence networks was constructed by varying the sample size from 11 to 58 with a step size of 1. As illustrated in Figure 2, key network topological features, including network nodes, edges, density, diameter, average path length, and average degree, exhibited distinct dynamic patterns with expanding sample sizes, based on which the minimum sample size (N<sub>min</sub>) required for reliable network construction was successfully determined via lag-1 autoregressive (AR1) coefficients.
 
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-test.png" 

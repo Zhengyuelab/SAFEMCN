@@ -89,7 +89,7 @@ results <- analyze_network_topology(
 * ar1_windows: Defines the sliding window sizes (e.g., 10 and 15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
 
 ### **2. Case Studies**
-#### **2.1 Aloha Dataset Example**
+#### **2.1 Determination of N<sub>min</sub>**
 Based on the long-term time-series dataset from Station ALOHA, a gradient of microbial co-occurrence networks was constructed by varying the sample size from 11 to 58 with a step size of 1. As illustrated in Figure 2, key network topological features, including network nodes, edges, density, diameter, average path length, and average degree, exhibited distinct dynamic patterns with expanding sample sizes, based on which the minimum sample size (N<sub>min</sub>) required for reliable network construction was successfully determined via lag-1 autoregressive (AR1) coefficients.
 
 <p align="center">
@@ -106,7 +106,7 @@ With increasing sample sizes, node numbers expanded toward saturation, whereas e
 
 The N<sub>min</sub> threshold was further identified by the AR1 module of the *SAFEMCN* package. The rapid decrease and then rapid increase in the AR1 value indicated the emergence of the topological plateau, providing a basis to determine the critical point corresponding to N<sub>min</sub>. To provide a robust estimate, the final Nmin was calculated as the average of the N<sub>min</sub> derived from all six topological parameters, resulting in a value of 31 ± 5. This threshold marked the earlier sampling depth at which inferred topology became reproducible across resampling replicates and could be regarded as meeting a minimum level of statistical validity.
 
-#### **2.2 Exponential Fitting and Prediction**
+#### **2.2 Prediction of N<sub>min</sub>**
 To enable topology prediction when initial sampling was limited, the *SAFEMCN* package integrated a predictive module that coupled the AR1 analysis with curve fitting of network topology parameters. This functionality enables users to model the trajectories of network topological parameters as nonlinear functions varying with sample size using an exponential fitting model (). By fitting this model to observed data, the package extrapolates topological trajectories beyond the current sample-size range and computes AR1 coefficients on the fitted sequences to determine the predicted N<sub>min</sub>.
 
 

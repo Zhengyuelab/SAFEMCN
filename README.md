@@ -64,7 +64,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 
 ### **2. Case Studies**
 #### **2.1 Determination of N<sub>min</sub>**
-Based on the long-term time-series dataset from Station ALOHA, a gradient of microbial co-occurrence networks was constructed by varying the sample size from 11 to 58 with a step size of 1. As illustrated in Figure 2, key network topological features, including network nodes, edges, density, diameter, average path length, and average degree, exhibited distinct dynamic patterns with expanding sample sizes, based on which the minimum sample size (N<sub>min</sub>) required for reliable network construction was successfully determined via lag-1 autoregressive (AR1) coefficients.
+In this part, the long-term time-series dataset from Station ALOHA is used as an example data set to determine the required N<sub>min</sub> for this dataset.
 ```r
 library(SAFEMCN)
 
@@ -74,19 +74,19 @@ results <- analyze_network_topology(
   p_threshold = 0.05,
   cor_method = "spearman",
   start_size = 5,
-  end_size = 28,
+  end_size = 58,
   step_size = 1,
   replicates = 50,
   use_parallel = TRUE,
   output_prefix = "network_parameters",
   plot_topology = TRUE,
   plot_start_size = 11,
-  fit_formula = TRUE,
+  fit_formula = FALSE,
   fit_start_size = 11,
   predict_end_size = 58,
   run_ar1 = TRUE,
   ar1_input_file = "node_num_combined.csv",
-  ar1_windows = c(10, 15)
+  ar1_windows = c(15)
 )
 ```
 

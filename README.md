@@ -44,7 +44,6 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 
 # **Usage**  
 ### **1. Parameter Settings**
-* work_dir: Specifies the working directory for reading input files and saving output results.  
 * otu_file: Input OTU/ASV table (rows: features, cols: samples).  
 * r_threshold: The correlation coefficient threshold (|R|).   
 * p_threshold: The significance level(filters non-significant edges). 
@@ -56,7 +55,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 * output_prefix: Prefix for exported result files. 
 * plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
 * plot_start_size: Start sample size for plotting.  
-* fit_formula: Logical; if TRUE, Apply exponential fitting to parameters.  
+* fit_formula: Logical; if TRUE, apply exponential fitting to parameters.  
 * fit_start_size:  Start sample size for fitting.  
 * predict_end_size: Target sample size for extrapolation.  
 * run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  

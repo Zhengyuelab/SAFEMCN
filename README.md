@@ -92,7 +92,14 @@ results <- analyze_network_topology(
 #### **2.1 Aloha Dataset Example**
 Based on the long-term time-series dataset from Station ALOHA, a gradient of microbial co-occurrence networks was constructed by varying the sample size from 11 to 58 with a step size of 1. As illustrated in Figure 2, key network topological features, including network nodes, edges, density, diameter, average path length, and average degree, exhibited distinct dynamic patterns with expanding sample sizes, based on which the minimum sample size (N<sub>min</sub>) required for reliable network construction was successfully determined via lag-1 autoregressive (AR1) coefficients.
 
-
+<p align="center">
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-test.png" 
+       width="65%" 
+       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
+</p>
+<p align="center">
+  <b>Figure 2. Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient</b>
+</p>
 
 #### 📌 **Result Interpretation:**
 With increasing sample sizes, node numbers expanded toward saturation, whereas edge counts dramatically decreased before leveling off. Across these trajectories, the network topology parameters stabilized in a clear sequential order: node first, followed by edge, density, average degree, and lastly, diameter and average path length, reflecting a gradient of sensitivity to sample size.  

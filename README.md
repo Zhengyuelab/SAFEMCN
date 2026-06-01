@@ -39,9 +39,6 @@ install.packages("devtools")
 devtools::install_github("Zhengyuelab/SAFEMCN")
 ```
 
-
-
-
 # **Usage**  
 ### **1. Parameter Settings**
 * **otu_file:** Input OTU/ASV table (rows: features, cols: samples).  
@@ -104,9 +101,9 @@ Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (
 Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and generates a scatter plot showing how the AR1 coefficient changes with sample size. Finally, the module also generates an AR1_min.csv file, which records the determined N<sub>min</sub> value and its corresponding AR1 value.  
 
 The content of the AR1_min.csv file is as follows:
-| file                         | window | Nmin | min_AR1      |
-|------------------------------|--------|------|--------------|
-| node_num_original.csv        | 15     | 21   | 0.797413592  |
+| file                         | window | N<sub>min</sub> | min_AR1      |
+|------------------------------|--------|-----------------|--------------|
+| node_num_original.csv        |   15   |       21        | 0.797413592  |
 
 #### **2.2 Prediction of N<sub>min</sub>**
 This part uses the ALOHA dataset as the sample data and employs the prediction module of *SAFEMCN* to predict Nmin.

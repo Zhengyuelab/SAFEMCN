@@ -142,8 +142,8 @@ results <- analyze_network_topology(
 </p>
 
 #### 📌 **Result Interpretation:**
-First, the SAFEMCN package outputs a line-point plot of network topology parameters as a function of sample size under finite sample sizes. When fit_formula = TRUE, the package fits the existing trend using a three-parameter exponential formula to obtain the fitted equation.  
+First, the *SAFEMCN* package outputs a line-point plot of network topology parameters as a function of sample size under finite sample sizes. When fit_formula = TRUE, the package fits the existing trend using a three-parameter exponential formula to obtain the fitted equation.  
 
-After setting predict_end_size = 58, the package calculates the corresponding network topology parameter values for sample sizes ranging from 31 to 58 based on the fitted equation, and integrates the measured values with the fitted values for output into files such as node_num_combined.csv and edge_num_combined.csv. These files are then used as inputs to the AR1 model for the determination of Nmin.  
+After setting predict_end_size = 58, the package calculates the corresponding network topology parameter values for sample sizes ranging from 31 to 58 based on the fitted equation, and integrates the measured values with the fitted values for output into files such as node_num_combined.csv and edge_num_combined.csv. These files are then used as inputs to the AR1 model for the determination of N<sub>min</sub>.  
 
 Similarly, this fitting part will also output the node_num_combined_window15_AR1.csv and the corresponding AR1_min.csv files.

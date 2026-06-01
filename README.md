@@ -46,13 +46,13 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ### **1. Parameter Settings**
 * **otu_file:** Input OTU/ASV table (rows: features, cols: samples).  
 * **r_threshold:** The correlation coefficient threshold (|R|).   
-* **p_threshold:** The significance level(filters non-significant edges). 
+* **p_threshold:** The significance level (*p*,filters non-significant edges). 
 * **cor_method:** Correlation algorithm ("spearman" or "pearson").  
 * **start_size & end_size:** Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
 * **step_size:** Increment of gradient (1 = single sample steps).  
 * **replicates:** The number of repeated sampling for each sample size (e.g., 50 repeats).
 * **use_parallel:** Enable multi-core parallel processing.
-* **plot_topology:** Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
+* **plot_topology:** if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
 * **plot_start_size:** Start sample size for plotting.  
 * **fit_formula:** if TRUE, apply exponential fitting to parameters.  
 * **fit_start_size:**  Start sample size for fitting.  

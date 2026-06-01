@@ -138,6 +138,5 @@ results <- analyze_network_topology(
 </p>
 
 #### 📌 **Result Interpretation:**
-By extrapolating node and edge trajectories via the fitted exponential model (Figs 3a–b), the AR1-based N<sub>min</sub> was successfully predicted under limited sampling. Crucially, the predicted N<sub>min</sub> tightly matched the empirical thresholds derived from the complete 58-sample dataset (node: 25 vs. 27 samples; edge: 29 vs. 28 samples). This minimal deviation validates the framework's reliability. Furthermore, networks constructed with sample sizes exceeding these predicted thresholds exhibited convergent and stable topological properties, such as network density and average path length (Figs 3c–d).  
-
-Consequently, combining mechanistic extrapolation with the AR1 stability criterion provides a robust, practical solution for optimized sampling design when large datasets are unfeasible.
+First, the SAFEMCN package outputs a line-point plot of network topology parameters as a function of sample size under finite sample sizes. When fit_formula = TRUE, the package fits the existing trend using a three-parameter exponential formula to obtain the fitted equation.   
+After setting predict_end_size = 58, the package calculates the corresponding network topology parameter values for sample sizes ranging from 31 to 58 based on the fitted equation, and integrates the measured values with the fitted values for output into files such as node_num_combined.csv and edge_num_combined.csv. These files are then used as inputs to the AR(1) model for the determination of Nmin.

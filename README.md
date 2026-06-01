@@ -58,7 +58,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 * **fit_start_size:**  Start sample size for fitting.  
 * **predict_end_size:** Target sample size for extrapolation.  
 * **run_ar1:** if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
-* **ar1_input_file:** The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
+* **ar1_input_file:** The input file for AR1 analysis, The input file can be either node_num_original.csv or node_num_combined.csv which is the result of combining the fitting data.
 * **ar1_windows**: Defines the sliding window sizes (e.g.,15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
 
 ### **2. Case Studies**
@@ -99,9 +99,9 @@ results <- analyze_network_topology(
 #### 📌 **Result Interpretation:**
 The *SAFEMCN* package visualizes the variation of network topology parameters with sample size as a line graph, providing an intuitive representation of topological changes, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv) and saving them in a designated folder.   
 
-Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (e.g., node_num_original.csv) as input to identify the Nmin threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as Nmin, indicating the emergence of a topological plateau.   
+Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (e.g., node_num_original.csv) as input to identify the N<sub>min</sub> threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as N<sub>min</sub>, indicating the emergence of a topological plateau.   
 
-Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and generates a scatter plot showing how the AR1 coefficient changes with sample size. Finally, the module also generates an AR1_min.csv file, which records the determined Nmin value and its corresponding AR1 value.  
+Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and generates a scatter plot showing how the AR1 coefficient changes with sample size. Finally, the module also generates an AR1_min.csv file, which records the determined N<sub>min</sub> value and its corresponding AR1 value.  
 
 The content of the AR1_min.csv file is as follows:
 | file                         | window | Nmin | min_AR1      |
@@ -144,6 +144,6 @@ results <- analyze_network_topology(
 #### 📌 **Result Interpretation:**
 First, the SAFEMCN package outputs a line-point plot of network topology parameters as a function of sample size under finite sample sizes. When fit_formula = TRUE, the package fits the existing trend using a three-parameter exponential formula to obtain the fitted equation.  
 
-After setting predict_end_size = 58, the package calculates the corresponding network topology parameter values for sample sizes ranging from 31 to 58 based on the fitted equation, and integrates the measured values with the fitted values for output into files such as node_num_combined.csv and edge_num_combined.csv. These files are then used as inputs to the AR(1) model for the determination of Nmin.  
+After setting predict_end_size = 58, the package calculates the corresponding network topology parameter values for sample sizes ranging from 31 to 58 based on the fitted equation, and integrates the measured values with the fitted values for output into files such as node_num_combined.csv and edge_num_combined.csv. These files are then used as inputs to the AR1 model for the determination of Nmin.  
 
 Similarly, this fitting part will also output the node_num_combined_window15_AR1.csv and the corresponding AR1_min.csv files.

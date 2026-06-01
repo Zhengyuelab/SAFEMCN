@@ -44,23 +44,22 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 
 # **Usage**  
 ### **1. Parameter Settings**
-* otu_file: Input OTU/ASV table (rows: features, cols: samples).  
-* r_threshold: The correlation coefficient threshold (|R|).   
-* p_threshold: The significance level(filters non-significant edges). 
-* cor_method: Correlation algorithm ("spearman" or "pearson").  
-* start_size & end_size: Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
-* step_size: Increment of gradient (1 = single sample steps).  
-* replicates: The number of repeated sampling for each sample size (e.g., 50 repeats).
-* use_parallel: Enable multi-core parallel processing.
-* output_prefix: Prefix for exported result files. 
-* plot_topology: Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
-* plot_start_size: Start sample size for plotting.  
-* fit_formula: Logical; if TRUE, apply exponential fitting to parameters.  
-* fit_start_size:  Start sample size for fitting.  
-* predict_end_size: Target sample size for extrapolation.  
-* run_ar1: Logical; if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
-* ar1_input_file: The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
-* ar1_windows: Defines the sliding window sizes (e.g.,15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
+* **otu_file:** Input OTU/ASV table (rows: features, cols: samples).  
+* **r_threshold:** The correlation coefficient threshold (|R|).   
+* **p_threshold:** The significance level(filters non-significant edges). 
+* **cor_method:** Correlation algorithm ("spearman" or "pearson").  
+* **start_size & end_size:** Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
+* **step_size:** Increment of gradient (1 = single sample steps).  
+* **replicates:** The number of repeated sampling for each sample size (e.g., 50 repeats).
+* **use_parallel:** Enable multi-core parallel processing.
+* **plot_topology:** Logical; if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
+* **plot_start_size:** Start sample size for plotting.  
+* **fit_formula:** if TRUE, apply exponential fitting to parameters.  
+* **fit_start_size:**  Start sample size for fitting.  
+* **predict_end_size:** Target sample size for extrapolation.  
+* **run_ar1:** if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
+* **ar1_input_file:** The input file for AR1 analysis, containing network topological parameters (e.g., node number, edge number, or density) calculated across the sample-size gradient.  
+* **ar1_windows**: Defines the sliding window sizes (e.g.,15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
 
 ### **2. Case Studies**
 #### **2.1 Determination of N<sub>min</sub>**

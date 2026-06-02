@@ -94,7 +94,7 @@ results <- analyze_network_topology(
 
 
 #### 📌 **Result Interpretation:**
-The *SAFEMCN* package visualizes the variation of network topology parameters with sample size as a line graph, providing an intuitive representation of topological changes, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv) and saving them in a designated folder.   
+The *SAFEMCN* package visualizes the variation of network topology parameters with sample size as a line graph, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv).   
 
 Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (e.g., node_num_original.csv) as input to identify the N<sub>min</sub> threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as N<sub>min</sub>, indicating the emergence of a topological plateau.   
 

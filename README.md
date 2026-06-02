@@ -54,8 +54,8 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 * **fit_formula:** If TRUE, apply exponential fitting to parameters.  
 * **fit_start_size:**  Start sample size for fitting.  
 * **predict_end_size:** Target sample size for extrapolation.  
-* **run_ar1:** if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  
-* **ar1_input_file:** The input file for AR1 analysis, The input file can be either node_num_original.csv or node_num_combined.csv which is the result of combining the fitting data.
+* **run_ar1:** if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size.  
+* **ar1_input_file:** The input file can be either node_num_original.csv or node_num_combined.csv which is the result of combining the fitting data.
 * **ar1_windows**: Defines the sliding window sizes (e.g.,15) for calculating rolling statistics like standard deviation or autocorrelation in the AR1 stability analysis.
 
 ### **2. Case Studies**

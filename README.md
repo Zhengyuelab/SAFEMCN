@@ -48,10 +48,10 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 * **start_size & end_size:** Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
 * **step_size:** Increment of gradient (1 = single sample steps).  
 * **replicates:** The number of repeated sampling for each sample size (e.g., 50 repeats).
-* **use_parallel:** Enable multi-core parallel processing.
-* **plot_topology:** if TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
+* **use_parallel:** If TRUE, enable multi-core parallel processing.
+* **plot_topology:** If TRUE, generates plots showing the trend of topological parameters across the sample-size gradient.  
 * **plot_start_size:** Start sample size for plotting.  
-* **fit_formula:** if TRUE, apply exponential fitting to parameters.  
+* **fit_formula:** If TRUE, apply exponential fitting to parameters.  
 * **fit_start_size:**  Start sample size for fitting.  
 * **predict_end_size:** Target sample size for extrapolation.  
 * **run_ar1:** if TRUE, performs lag-1 Autoregressive (AR1) analysis to calculate the AR1 coefficient at each sample size, serving as an indicator of network stability.  

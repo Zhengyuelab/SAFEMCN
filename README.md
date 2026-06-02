@@ -98,10 +98,7 @@ The *SAFEMCN* package visualizes the variation of network topology parameters wi
 
 Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (e.g., node_num_original.csv) as input to identify the N<sub>min</sub> threshold: the lowest AR1 value (marked by a rapid decrease followed by a rapid increase) is determined as N<sub>min</sub>, indicating the emergence of a topological plateau.   
 
-Additionally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and generates a scatter plot showing how the AR1 coefficient changes with sample size.   
-
-Finally, the module also generates an AR1_min.csv file, which records the determined N<sub>min</sub> value and its corresponding AR1 value.  
-
+Finally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and also generates an AR1_min.csv file, which records the determined N<sub>min</sub> value and its corresponding AR1 value.  
 
 #### **2.2 Prediction of N<sub>min</sub>**
 This part uses the ALOHA dataset as the sample data and employs the prediction module of *SAFEMCN* to predict Nmin.

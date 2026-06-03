@@ -1,6 +1,6 @@
 # *SAFEMCN* <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-logo.png" width="130" align="right" />
 
-***SAFEMCN*** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
+***SAFEMCN*** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5.0, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
 
 
 # **Overview**  

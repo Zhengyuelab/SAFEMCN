@@ -1,4 +1,4 @@
-# *SAFEMCN* <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-logo.png" width="100" align="right" />
+# *SAFEMCN* <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-logo.png" width="130" align="right" />
 
 ***SAFEMCN*** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
 
@@ -7,7 +7,7 @@
 The *SAFEMCN* R package is a standardized framework designed to determine the minimum sample size (N<sub>min</sub>) required for robust microbial co-occurrence network inference, which systematically integrates three core functional modules: (1) Variations in network topological properties across diverse sample sizes are characterized via a rarefaction-curve method; (2) Determination of the N<sub>min</sub> via lag-1 autoregressive (AR1) coefficient assessments; and (3) N<sub>min</sub> estimation via three-parameter exponential extrapolation to forecast data requirements under limited sample sizes.
 
 <p align="center">
-  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/Workflow-SAFEMCN.png" 
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-workflow.tif" 
        width="65%" 
        alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>

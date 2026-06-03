@@ -4,11 +4,11 @@
 
 
 # **Overview**  
-The *SAFEMCN* R package is a standardized framework designed to determine the minimum sample size (N<sub>min</sub>) required for robust microbial co-occurrence network inference, which systematically integrates three core functional modules: (1) Variations in network topological properties across diverse sample sizes are characterized via a rarefaction-curve method; (2) Determination of the N<sub>min</sub> via lag-1 autoregressive (AR1) coefficient assessments; and (3) N<sub>min</sub> estimation via three-parameter exponential extrapolation to forecast data requirements under limited sample sizes.
+The *SAFEMCN* R package provides a standardized framework to determine the minimum sample size (N<sub>min</sub>) required for robust microbial co-occurrence network inference. The package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2). Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and p-value thresholds (Step 3). Next, network topological trajectories are generated along a rarefaction curve determined by the starting sample size, ending sample size, step size, and replicates (Step 4). For Nmin N<sub>min</sub> (Step 5), the package either identifies Nmin by applying lag-1 autoregressive (AR1) coefficient analysis to the observed topology (Step 5a), or predicts Nmin using a three-parameter exponential fitting model (y=aebx+c) and AR1 analysis on the fitted topology when empirical sample sizes are limited (Step 5b). Finally, the package outputs the N<sub>min</sub> (Step 6).
 
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/workflow-SAFEMCN.png" 
-       width="65%" 
+       width="90%" 
        alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>
 

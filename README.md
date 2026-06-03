@@ -10,9 +10,9 @@ The package begins with an ASV/OTU table derived from raw amplicon sequencing da
 
 Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and p-value thresholds (Step 3).   
 
-Next, network topological trajectories are generated along a rarefaction curve determined by the starting sample size, ending sample size, step size, and replicates (Step 4).   
+Next, network topological trajectories are generated along a rarefaction curve determined by the start sample size, end sample size, step size, and replicates (Step 4).   
 
-For N<sub>min</sub> (Step 5), the package either identifies Nmin by applying lag-1 autoregressive (AR1) coefficient analysis to the observed topology (Step 5a), or predicts Nmin using a three-parameter exponential fitting model ($y = ae^{bx} + c$) and AR1 analysis on the fitted topology when empirical sample sizes are limited (Step 5b).   
+For N<sub>min</sub> (Step 5), the package either identifies N<sub>min</sub> by applying lag-1 autoregressive (AR1) coefficient analysis to the observed topology (Step 5a), or predicts Nmin using a three-parameter exponential fitting model ($y = ae^{bx} + c$) and AR1 analysis on the fitted topology when empirical sample sizes are limited (Step 5b).   
 
 Finally, the package outputs the N<sub>min</sub> (Step 6).
 

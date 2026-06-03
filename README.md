@@ -17,7 +17,7 @@ For N<sub>min</sub> (Step 5), the package either identifies N<sub>min</sub> by a
 Finally, the package outputs the N<sub>min</sub> (Step 6).
 
 <p align="center">
-  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/workflow-SAFEMCN.png" 
+  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-workflow.png" 
        width="95%" 
        alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>

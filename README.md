@@ -53,7 +53,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ### **1. Parameter Settings**
 * **otu_file:** Input OTU/ASV table in CSV format (rows: features, cols: samples).  
 * **r_threshold:** The correlation coefficient threshold (|R|).   
-* **p_threshold:** The significance level (*p*,filters non-significant edges). 
+* **p_threshold:** The significance level (*p*-value,filters non-significant edges). 
 * **cor_method:** Correlation method ("spearman" or "pearson").  
 * **start_size & end_size:** Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
 * **step_size:** Increment of gradient (1 = single sample steps).  

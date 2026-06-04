@@ -8,7 +8,7 @@ To address this issue, we developed *SAFEMCN*, an open-source R package that pro
 # **Overview**  
 The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2).   
 
-Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and p-value thresholds (Step 3).   
+Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and *p*-value thresholds (Step 3).   
 
 Next, network topological trajectories are generated along a rarefaction curve determined by the start sample size, end sample size, step size, and replicates (Step 4).   
 

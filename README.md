@@ -1,12 +1,12 @@
 # *SAFEMCN* <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-logo.png" width="130" align="right" />
+**Introduction** : Microbial co-occurrence networks are now widely used to infer putative ecological associations, identify keystone taxa, and compare community organization. However, the reliability and comparability of such networks are often limited by an underappreciated methodological issue, namely the dependence of inferred network topology on sample size. Because sample sizes differ substantially among ecological studies, networks constructed from insufficient or uneven sampling may yield unstable topological patterns and reduce the reproducibility of ecological interpretations.  
+
+To address this issue, we developed *SAFEMCN*, an open-source R package that provides a sample-size-aware framework for evaluating microbial co-occurrence networks. *SAFEMCN* integrates rarefaction-based repeated network reconstruction with lag-1 autocorrelation analysis to identify the minimum sample size required for stable network inference. In addition, the package incorporates exponential curve fitting to predict this threshold from limited pilot data, allowing researchers to evaluate sampling adequacy before or during experimental design. 
 
 ***SAFEMCN*** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5.0, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
 
-
 # **Overview**  
-The *SAFEMCN* package provides a standardized framework to determine the minimum sample size (N<sub>min</sub>) required for robust microbial co-occurrence network inference.   
-
-The package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2).   
+The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2).   
 
 Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and p-value thresholds (Step 3).   
 

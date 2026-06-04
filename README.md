@@ -10,7 +10,7 @@ The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon seq
 
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/workflow-SAFEMCN.png" 
-       width="135%" 
+       width="140%" 
        alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
 </p>
 

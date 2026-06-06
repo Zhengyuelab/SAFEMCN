@@ -6,7 +6,7 @@ To address this issue, we developed *SAFEMCN*, an open-source R package that pro
 ***SAFEMCN*** : *SAFEMCN* (A Sample-Size-Aware Framework for Evaluating Microbial Co-occurrence Networks) is dependent on R ≥ 3.5.0, the other dependencies in the R environment are igraph, Hmisc, parallel, ggplot2, grDevices, graphics, rlangstats and utils.
 
 # **Overview**  
-The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2). Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and *p*-value thresholds (Step 3). Next, network topological trajectories are generated along a rarefaction curve determined by the start sample size, end sample size, step size, and replicates (Step 4). For N<sub>min</sub> (Step 5), the package either identifies N<sub>min</sub> by applying lag-1 autoregressive (AR1) coefficient analysis to the observed topology (Step 5a), or predicts Nmin using a three-parameter exponential fitting model ($y = ae^{bx} + c$) and AR1 analysis on the fitted topology when empirical sample sizes are limited (Step 5b). Finally, the package outputs the N<sub>min</sub> (Step 6).
+The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon sequencing data (Steps 1-2). Microbial co-occurrence networks are then constructed using user-defined correlation methods and |R| and *P*-value thresholds (Step 3). Next, network topological trajectories are generated along a rarefaction curve determined by the start sample size, end sample size, step size, and replicates (Step 4). For N<sub>min</sub> (Step 5), the package either identifies N<sub>min</sub> by applying lag-1 autoregressive (AR1) coefficient analysis to the observed topology (Step 5a), or predicts Nmin using a three-parameter exponential fitting model ($y = ae^{bx} + c$) and AR1 analysis on the fitted topology when empirical sample sizes are limited (Step 5b). Finally, the package outputs the N<sub>min</sub> (Step 6).
 
 <p align="center">
   <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/SAFEMCN-workflow.png" 
@@ -37,7 +37,7 @@ devtools::install_github("Zhengyuelab/SAFEMCN")
 ### **1. Parameter Settings**
 * **otu_file:** Input OTU/ASV table in CSV format (rows: features, cols: samples).  
 * **r_threshold:** The correlation coefficient threshold (|R|).   
-* **p_threshold:** The significance level (*p*-value,filters non-significant edges). 
+* **p_threshold:** The significance level (*P*-value,filters non-significant edges). 
 * **cor_method:** Correlation method ("spearman" or "pearson").  
 * **start_size & end_size:** Defines the range of the sample-size gradient (e.g., from 5 to 58 samples).  
 * **step_size:** Increment of gradient (1 = single sample steps).  

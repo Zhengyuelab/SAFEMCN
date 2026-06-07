@@ -24,9 +24,9 @@ The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon seq
 # **Install *SAFEMCN*** 
 Install the latest development version from Github.
 ```r
-#If devtools package is not installed, first install it.
-install.packages("devtools")
-devtools::install_github("Zhengyuelab/SAFEMCN")
+# For double-blind review, the GitHub owner name has been anonymized.
+# After obtaining the source code, install the package locally:
+devtools::install(".")
 ```
 
 # **Usage**  

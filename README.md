@@ -22,10 +22,6 @@ The *SAFEMCN* package begins with an ASV/OTU table derived from raw amplicon seq
 
 
 # **Install *SAFEMCN*** 
-Install *SAFEMCN*  package from CRAN.
-```r
-install.packages("SAFEMCN")
-```
 Install the latest development version from Github.
 ```r
 #If devtools package is not installed, first install it.

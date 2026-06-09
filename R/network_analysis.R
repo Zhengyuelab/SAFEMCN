@@ -282,39 +282,84 @@ analyze_network_topology <- function(work_dir,
 
   if (fit_formula) {
 
-    # Internal function: fit y = a * exp(b * x) + c using nls()
-    fit_exp3P <- function(x, y) {
-      c_init <- min(y) - 0.01 * diff(range(y))
-      if (c_init < 0 && all(y > 0)) c_init <- min(y) * 0.9
+# Internal function: fit y = a * exp(b * x) + c using nls()
+fit_exp3P <- function(x, y) {
 
-      y_trans <- log(y - c_init)
-      lm_fit <- lm(y_trans ~ x)
-      a_init <- exp(coef(lm_fit)[1])
-      b_init <- coef(lm_fit)[2]
+  y_range <- diff(range(y))
+  if (y_range == 0) {
+    warning("Fit failed: y has no variation.")
+    return(NULL)
+  }
 
-      tryCatch({
-        fit <- nls(y ~ a * exp(b * x) + c,
-                   start = list(a = a_init, b = b_init, c = c_init),
-                   control = nls.control(maxiter = 100, warnOnly = TRUE))
+  # Determine whether the trajectory is increasing or decreasing
+  trend_cor <- suppressWarnings(cor(x, y, method = "spearman"))
 
-        a_coef <- coef(fit)["a"]
-        b_coef <- coef(fit)["b"]
-        c_coef <- coef(fit)["c"]
+  if (is.na(trend_cor)) {
+    warning("Fit failed: cannot determine the trend of y.")
+    return(NULL)
+  }
 
-        y_pred <- predict(fit)
-        RSS <- sum((y - y_pred)^2)
-        TSS <- sum((y - mean(y))^2)
-        R2 <- 1 - RSS / TSS
+  if (trend_cor >= 0) {
+    # Increasing saturating curve
+    # Equivalent to y = c - |a| * exp(-|b| * x)
+    # In the original formula, this means a < 0 and b < 0
+    c_init <- max(y) + 0.01 * y_range
+    a_init <- min(y) - c_init
+    b_init <- -0.05
 
-        formula_str <- sprintf("y = %.4f * exp(%.4f * x) + %.4f   (R^2 = %.4f)",
-                               a_coef, b_coef, c_coef, R2)
-        return(list(fit = fit, params = coef(fit), formula = formula_str, R2 = R2))
-      }, error = function(e) {
-        warning("Fit failed: ", e$message)
-        return(NULL)
-      })
-    }
+    lower_bounds <- c(a = -Inf, b = -Inf, c = max(y))
+    upper_bounds <- c(a = 0,    b = 0,    c = Inf)
 
+  } else {
+    # Decreasing saturating curve
+    # Equivalent to y = c + |a| * exp(-|b| * x)
+    # In the original formula, this means a > 0 and b < 0
+    c_init <- min(y) - 0.01 * y_range
+    if (c_init < 0 && all(y > 0)) c_init <- min(y) * 0.9
+
+    a_init <- max(y) - c_init
+    b_init <- -0.05
+
+    lower_bounds <- c(a = 0, b = -Inf, c = -Inf)
+    upper_bounds <- c(a = Inf, b = 0, c = min(y))
+  }
+
+  tryCatch({
+    fit <- nls(
+      y ~ a * exp(b * x) + c,
+      start = list(a = a_init, b = b_init, c = c_init),
+      algorithm = "port",
+      lower = lower_bounds,
+      upper = upper_bounds,
+      control = nls.control(maxiter = 200, warnOnly = TRUE)
+    )
+
+    a_coef <- coef(fit)["a"]
+    b_coef <- coef(fit)["b"]
+    c_coef <- coef(fit)["c"]
+
+    y_pred <- predict(fit)
+    RSS <- sum((y - y_pred)^2)
+    TSS <- sum((y - mean(y))^2)
+    R2 <- 1 - RSS / TSS
+
+    formula_str <- sprintf(
+      "y = %.4f * exp(%.4f * x) + %.4f   (R^2 = %.4f)",
+      a_coef, b_coef, c_coef, R2
+    )
+
+    return(list(
+      fit = fit,
+      params = coef(fit),
+      formula = formula_str,
+      R2 = R2
+    ))
+
+  }, error = function(e) {
+    warning("Fit failed: ", e$message)
+    return(NULL)
+  })
+}
     topo_params <- colnames(summary_df)[grepl("_mean$", colnames(summary_df))]
     topo_params <- gsub("_mean$", "", topo_params)
 

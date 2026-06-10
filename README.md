@@ -72,7 +72,7 @@ results <- analyze_network_topology(
   fit_start_size = 11,
   predict_end_size = 58,
   run_ar1 = TRUE,
-  ar1_input_file = "node_num_combined.csv",
+  ar1_input_file = "node_num_original.csv",
   ar1_windows = c(15)
 )
 ```

@@ -90,7 +90,7 @@ library(SAFEMCN)
 
 results <- analyze_network_topology(
   work_dir = "$PATH_TO_DATA",
-  otu_file = "otu.csv",
+  otu_file = "limited_samples.csv",
   r_threshold = 0.6,
   p_threshold = 0.05,
   cor_method = "spearman",

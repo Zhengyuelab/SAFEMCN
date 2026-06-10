@@ -55,6 +55,7 @@ In this part, the long-term time-series dataset from Station ALOHA is used as an
 library(SAFEMCN)
 
 results <- analyze_network_topology(
+  work_dir = "$PATH_TO_DATA",
   otu_file = "otu.csv",
   r_threshold = 0.6,
   p_threshold = 0.05,
@@ -76,13 +77,6 @@ results <- analyze_network_topology(
 )
 ```
 
-<p align="center">
-  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-test.png" 
-       width="65%" 
-       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
-</p>
-
-
 #### 📌 **Result Interpretation:**
 The *SAFEMCN* package visualizes the variation of network topology parameters with sample size as a line graph, while also outputting the corresponding topological parameter values for each sample size (e.g., node_num_original.csv, edge_num_original.csv).   
 
@@ -96,6 +90,7 @@ This part uses the ALOHA dataset as the sample data and employs the prediction m
 library(SAFEMCN)
 
 results <- analyze_network_topology(
+  work_dir = "$PATH_TO_DATA",
   otu_file = "otu.csv",
   r_threshold = 0.6,
   p_threshold = 0.05,
@@ -117,11 +112,6 @@ results <- analyze_network_topology(
 )
 
 ```
-<p align="center">
-  <img src="https://github.com/Zhengyuelab/SAFEMCN/blob/main/figure/ALOHA-predicted.png" 
-       width="65%" 
-       alt="Variations in network topological parameters and the lag-1 autocorrelation (AR1) coefficient" />
-</p>
 
 #### 📌 **Result Interpretation:**
 First, the *SAFEMCN* package outputs a line-point plot of network topology parameters as a function of sample size under finite sample sizes. When `fit_formula = TRUE`, the package fits the existing trend using a three-parameter exponential formula to obtain the fitted equation.  

@@ -51,7 +51,6 @@ devtools::install(".")
 
 ### **2. Case Studies**
 #### **2.1 Determination of N<sub>min</sub>**
-In this part, the long-term time-series dataset from Station ALOHA is used as an example data set to determine the required N<sub>min</sub> for this dataset.
 ```r
 library(SAFEMCN)
 
@@ -86,7 +85,6 @@ Furthermore, the AR1 module of the *SAFEMCN*  package takes these output files (
 Finally, the AR1 module outputs a CSV file containing the AR1 coefficient for each sample size (e.g., node_num_original_window15_AR1.csv) and also generates an AR1_min.csv file, which records the determined N<sub>min</sub> value and its corresponding AR1 value.  
 
 #### **2.2 Prediction of N<sub>min</sub>**
-This part uses the ALOHA dataset as the sample data and employs the prediction module of *SAFEMCN* to predict Nmin.
 ```r
 library(SAFEMCN)
 
@@ -97,7 +95,7 @@ results <- analyze_network_topology(
   p_threshold = 0.05,
   cor_method = "spearman",
   start_size = 5,
-  end_size = 30,
+  end_size = 25,
   step_size = 1,
   replicates = 50,
   use_parallel = TRUE,

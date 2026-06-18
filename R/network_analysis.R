@@ -93,18 +93,18 @@ analyze_network_topology <- function(work_dir,
     diag(adjacency_matrix) <- 0
 
     if (sum(adjacency_matrix, na.rm = TRUE) == 0) {
-      return(data.frame(
-        sample_size = sample_size,
-        node_num = ncol(otu_sub),
-        edge_num = 0,
-        average_degree = 0,
-        clustering_coefficient = 0,
-        modularity = 0,
-        network_density = 0,
-        average_path_length = 0,
-        network_diameter = 0
-      ))
-    }
+  return(data.frame(
+    sample_size = sample_size,
+    node_num = 0,
+    edge_num = 0,
+    average_degree = 0,
+    clustering_coefficient = 0,
+    modularity = 0,
+    network_density = 0,
+    average_path_length = 0,
+    network_diameter = 0
+  ))
+}
 
     net <- igraph::graph_from_adjacency_matrix(adjacency_matrix, mode = "undirected", diag = FALSE)
 

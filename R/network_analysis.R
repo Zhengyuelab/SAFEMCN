@@ -106,29 +106,41 @@ analyze_network_topology <- function(work_dir,
   ))
 }
 
-    net <- igraph::graph_from_adjacency_matrix(adjacency_matrix, mode = "undirected", diag = FALSE)
+net <- igraph::graph_from_adjacency_matrix(
+  adjacency_matrix,
+  mode = "undirected",
+  diag = FALSE
+)
 
-    node_num <- igraph::vcount(net)
-    edge_num <- igraph::ecount(net)
-    average_degree <- mean(igraph::degree(net))
-    clustering_coefficient <- igraph::transitivity(net, type = "average")
-    fc <- igraph::cluster_fast_greedy(net)
-    modularity_value <- igraph::modularity(fc)
-    network_density <- igraph::edge_density(net)
-    average_path_length <- igraph::mean_distance(net)
-    network_diameter <- igraph::diameter(net)
+# Remove isolated vertices before calculating network topology
+net_connected <- igraph::delete_vertices(net, igraph::degree(net) == 0)
 
-    data.frame(
-      sample_size = sample_size,
-      node_num = node_num,
-      edge_num = edge_num,
-      average_degree = average_degree,
-      clustering_coefficient = clustering_coefficient,
-      modularity = modularity_value,
-      network_density = network_density,
-      average_path_length = average_path_length,
-      network_diameter = network_diameter
-    )
+node_num <- igraph::vcount(net_connected)
+edge_num <- igraph::ecount(net_connected)
+
+average_degree <- mean(igraph::degree(net_connected))
+
+clustering_coefficient <- igraph::transitivity(
+  net_connected,
+  type = "average"
+)
+
+fc <- igraph::cluster_fast_greedy(net_connected)
+modularity_value <- igraph::modularity(fc)
+
+network_density <- igraph::edge_density(net_connected)
+
+average_path_length <- igraph::mean_distance(
+  net_connected,
+  directed = FALSE,
+  unconnected = TRUE
+)
+
+network_diameter <- igraph::diameter(
+  net_connected,
+  directed = FALSE,
+  unconnected = TRUE
+)
   }
 
   # =========================================================

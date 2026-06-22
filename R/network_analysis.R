@@ -669,21 +669,36 @@ fit_exp3P <- function(x, y) {
         write.csv(output_ar1, output_filename, row.names = FALSE)
         cat("Saved AR1 values to", output_filename, "\n")
 
-        # Find AR1 minimum
-        if (length(AR1Val) > 0) {
-          min_ar1_idx <- which.min(AR1Val)
-          nmin_year <- wt_ar1[min_ar1_idx]
-          min_ar1_val <- AR1Val[min_ar1_idx]
-
-          all_min_results <- rbind(all_min_results, data.frame(
-            file = ar1_input_file,
-            window = w1,
-            Nmin = nmin_year,
-            min_AR1 = min_ar1_val,
-            stringsAsFactors = FALSE
-          ))
-          cat(sprintf("AR1 minimum at year %d (value=%.4f)\n", nmin_year, min_ar1_val))
-        }
+# Find AR1 minimum after the window threshold
+if (length(AR1Val) > 0) {
+  
+  # Only consider AR1 points whose sample-size position is >= window size
+  valid_idx <- which(wt_ar1 >= w1 & !is.na(AR1Val))
+  
+  if (length(valid_idx) > 0) {
+    min_ar1_idx <- valid_idx[which.min(AR1Val[valid_idx])]
+    nmin_year <- wt_ar1[min_ar1_idx]
+    min_ar1_val <- AR1Val[min_ar1_idx]
+    
+    all_min_results <- rbind(all_min_results, data.frame(
+      file = ar1_input_file,
+      window = w1,
+      Nmin = nmin_year,
+      min_AR1 = min_ar1_val,
+      stringsAsFactors = FALSE
+    ))
+    
+    cat(sprintf(
+      "AR1 minimum after window threshold at year %d (value=%.4f, window=%d)\n",
+      nmin_year, min_ar1_val, w1
+    ))
+  } else {
+    warning(sprintf(
+      "No valid AR1 points found after window threshold for window = %d",
+      w1
+    ))
+  }
+}
 
         # Plot: Original data + AR1
         par(mfrow = c(1, 2), mar = c(4, 4, 3, 1))

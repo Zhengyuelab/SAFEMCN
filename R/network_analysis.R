@@ -651,7 +651,9 @@ fit_exp3P <- function(x, y) {
       grDevices::pdf(pdf_filename, width = 12, height = 4)
 
       for (w1 in ar1_windows) {
-
+        nmin_year <- NA
+        min_ar1_val <- NA
+        
         # Detrended data for AR1
         val1 <- val11de
 

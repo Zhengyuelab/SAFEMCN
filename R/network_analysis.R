@@ -712,6 +712,11 @@ if (length(AR1Val) > 0) {
         plot(wt_ar1, AR1Val, pch = 16, col = color1_line, cex = 0.8,
              xlab = "Sample Size", ylab = "AR1 Coefficient",
              main = paste0("AR1 (Window=", w1, ")"))
+        # Add vertical line for Nmin selected after the window threshold
+        if (exists("nmin_year") && !is.na(nmin_year)) {
+          abline(v = nmin_year, col = color2_line, lwd = 1.5, lty = 3)
+          points(nmin_year, min_ar1_val, pch = 17, col = color2_line, cex = 1.2)
+        }
         if (length(AR1Val) > 1) {
           # Add trend line for AR1
           ar1_lm <- lm(AR1Val ~ wt_ar1)

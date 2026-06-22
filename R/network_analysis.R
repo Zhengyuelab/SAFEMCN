@@ -92,7 +92,7 @@ analyze_network_topology <- function(work_dir,
     adjacency_matrix <- ifelse(!is.na(R) & abs(R) > r_thresh & P < p_thresh, 1, 0)
     diag(adjacency_matrix) <- 0
 
-    if (sum(adjacency_matrix, na.rm = TRUE) == 0) {
+if (sum(adjacency_matrix, na.rm = TRUE) == 0) {
   return(data.frame(
     sample_size = sample_size,
     node_num = 0,
@@ -141,6 +141,18 @@ network_diameter <- igraph::diameter(
   directed = FALSE,
   unconnected = TRUE
 )
+
+return(data.frame(
+  sample_size = sample_size,
+  node_num = node_num,
+  edge_num = edge_num,
+  average_degree = average_degree,
+  clustering_coefficient = clustering_coefficient,
+  modularity = modularity_value,
+  network_density = network_density,
+  average_path_length = average_path_length,
+  network_diameter = network_diameter
+))
   }
 
   # =========================================================

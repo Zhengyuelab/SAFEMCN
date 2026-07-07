@@ -638,7 +638,21 @@ AR_func <- function(a1, a2) {
       val11 <- as.numeric(df[[2]])
 
       # Detrend
-      val11de <- val11 - predict(lm(val11 ~ seq_along(val11)))
+      linear_detrend <- function(x) {
+  idx <- seq_along(x)
+  ok <- is.finite(x)
+
+  if (sum(ok) < 2) {
+    return(x - mean(x, na.rm = TRUE))
+  }
+
+  fit <- lm(x[ok] ~ idx[ok])
+  out <- rep(NA_real_, length(x))
+  out[ok] <- residuals(fit)
+  out
+}
+
+val11de <- linear_detrend(val11)
 
       # Store all AR1 minimum results
       all_min_results <- data.frame(
@@ -664,9 +678,13 @@ AR_func <- function(a1, a2) {
         VarVal <- CalVarn(val1, w1)
 
         # Time axis for AR1 (center of window)
-        half_w <- w1 %/% 2
-        wt <- time1[(half_w + 1):(length(time1) - half_w)]
-        wt_ar1 <- wt[1:length(AR1Val)]
+        offset <- w1 %/% 2
+ar1_length <- length(AR1Val)
+
+wt_start <- time1[1] + offset
+wt_end <- time1[length(time1)] - offset
+
+wt_ar1 <- seq(wt_start, wt_end, length.out = ar1_length)
 
         # Save AR1 values to CSV
         output_ar1 <- data.frame(year = wt_ar1, AR1 = AR1Val)

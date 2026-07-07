@@ -23,8 +23,8 @@
 #' @param predict_end_size End sample size for prediction (default: NULL, no prediction)
 #' @param run_ar1 Whether to run AR1 analysis (default: FALSE)
 #' @param ar1_input_file Input file name for AR1 analysis (default: NULL, auto-select)
-#' @param ar1_windows Sliding window sizes for AR1 (default: c(5, 10, 15))
-#'
+#' @param ar1_windows Sliding window sizes for AR1 analysis (default: c(15))
+#' @param ar1_start_size Starting sample size for AR1 analysis. If NULL, plot_start_size is used.
 #' @return A list containing raw results, summary statistics, fit parameters, and predictions
 #' @export
 analyze_network_topology <- function(work_dir,
@@ -45,7 +45,8 @@ analyze_network_topology <- function(work_dir,
                                      predict_end_size = NULL,
                                      run_ar1 = FALSE,
                                      ar1_input_file = NULL,
-                                     ar1_windows = c(5, 10, 15)) {
+                                     ar1_windows = c(15)
+                                     ar1_start_size = NULL) {
 
   setwd(work_dir)
 
@@ -572,10 +573,8 @@ fit_exp3P <- function(x, y) {
       warning(paste("AR1 input file not found:", ar1_input_file))
     } else {
 
-      # --- AR1 helper functions ---
-      AR_func <- function(a1, a2) {
-
-      pop_sd <- function(x) {
+# --- AR1 helper functions ---
+pop_sd <- function(x) {
   x <- x[is.finite(x)]
   if (length(x) == 0) return(NA_real_)
   sqrt(mean((x - mean(x))^2))
@@ -597,30 +596,41 @@ AR_func <- function(a1, a2) {
 
   mean(((a1 - mean(a1)) / std_a1) * ((a2 - mean(a2)) / std_a2))
 }
-        
-        if (std_a1 == 0 || std_a2 == 0) return(0)
-        value <- mean(((a1 - mean(a1)) / std_a1) * ((a2 - mean(a2)) / std_a2))
-        return(value)
-      }
 
-      CalAR1 <- function(var, wlen) {
-        AR1_result <- c()
-        for (i in 1:(length(var) - wlen)) {
-          a1 <- var[i:(i + wlen - 1)]
-          a2 <- var[(i + 1):(i + wlen)]
-          AR1_result <- c(AR1_result, AR_func(a1, a2))
-        }
-        return(AR1_result)
-      }
+CalAR1 <- function(var, wlen) {
+  n <- length(var)
 
-      CalVarn <- function(var, wlen) {
-        Varn_result <- c()
-        for (i in 1:(length(var) - wlen + 1)) {
-          a1 <- var[i:(i + wlen - 1)]
-          Varn_result <- c(Varn_result, var(a1))
-        }
-        return(Varn_result)
-      }
+  if (n <= wlen) {
+    return(numeric(0))
+  }
+
+  AR1_result <- numeric(n - wlen)
+
+  for (i in seq_len(n - wlen)) {
+    a1 <- var[i:(i + wlen - 1)]
+    a2 <- var[(i + 1):(i + wlen)]
+    AR1_result[i] <- AR_func(a1, a2)
+  }
+
+  return(AR1_result)
+}
+
+CalVarn <- function(var, wlen) {
+  n <- length(var)
+
+  if (n < wlen) {
+    return(numeric(0))
+  }
+
+  Varn_result <- numeric(n - wlen + 1)
+
+  for (i in seq_len(n - wlen + 1)) {
+    a1 <- var[i:(i + wlen - 1)]
+    Varn_result[i] <- var(a1)
+  }
+
+  return(Varn_result)
+}
 
       # --- Plot settings ---
       color1_line <- "#2c4ca0"
@@ -628,14 +638,30 @@ AR_func <- function(a1, a2) {
       color1_fill <- "#2c4ca0"
       color2_fill <- "pink"
 
-      # Read data
-      df <- read.csv(ar1_input_file)
-      if (!("year" %in% names(df))) {
-        names(df) <- c("year", "value")[1:ncol(df)]
-      }
+# Read data
+df <- read.csv(ar1_input_file, check.names = FALSE)
 
-      time1 <- as.integer(df$year)
-      val11 <- as.numeric(df[[2]])
+if (!("year" %in% names(df))) {
+  names(df) <- c("year", "value")[1:ncol(df)]
+}
+
+# Make AR1 start consistent with topology plots by default
+if (is.null(ar1_start_size)) {
+  ar1_start_size <- plot_start_size
+}
+
+# Filter AR1 input data
+df <- df[df$year >= ar1_start_size, , drop = FALSE]
+
+if (nrow(df) <= max(ar1_windows)) {
+  stop(
+    "Not enough data points for AR1 analysis after filtering by ar1_start_size. ",
+    "Please reduce ar1_windows or lower ar1_start_size."
+  )
+}
+
+time1 <- as.integer(df$year)
+val11 <- as.numeric(df[[2]])
 
       # Detrend
       linear_detrend <- function(x) {
@@ -677,14 +703,13 @@ val11de <- linear_detrend(val11)
         AR1Val <- CalAR1(val1, w1)
         VarVal <- CalVarn(val1, w1)
 
-        # Time axis for AR1 (center of window)
-        offset <- w1 %/% 2
-ar1_length <- length(AR1Val)
+# Time axis for AR1: center position of each sliding window
+half_w <- w1 %/% 2
 
-wt_start <- time1[1] + offset
-wt_end <- time1[length(time1)] - offset
-
-wt_ar1 <- seq(wt_start, wt_end, length.out = ar1_length)
+wt_ar1 <- time1[seq(
+  from = half_w + 1,
+  length.out = length(AR1Val)
+)]
 
         # Save AR1 values to CSV
         output_ar1 <- data.frame(year = wt_ar1, AR1 = AR1Val)

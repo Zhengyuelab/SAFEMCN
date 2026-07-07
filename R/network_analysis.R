@@ -92,10 +92,10 @@ analyze_network_topology <- function(work_dir,
     adjacency_matrix <- ifelse(!is.na(R) & abs(R) > r_thresh & P < p_thresh, 1, 0)
     diag(adjacency_matrix) <- 0
 
-if (sum(adjacency_matrix, na.rm = TRUE) == 0) {
+    if (sum(adjacency_matrix, na.rm = TRUE) == 0) {
   return(data.frame(
     sample_size = sample_size,
-    node_num = 0,
+    node_num = ncol(otu_sub),
     edge_num = 0,
     average_degree = 0,
     clustering_coefficient = 0,
@@ -112,35 +112,16 @@ net <- igraph::graph_from_adjacency_matrix(
   diag = FALSE
 )
 
-# Remove isolated vertices before calculating network topology
-net_connected <- igraph::delete_vertices(net, igraph::degree(net) == 0)
-
-node_num <- igraph::vcount(net_connected)
-edge_num <- igraph::ecount(net_connected)
-
-average_degree <- mean(igraph::degree(net_connected))
-
-clustering_coefficient <- igraph::transitivity(
-  net_connected,
-  type = "average"
-)
-
-fc <- igraph::cluster_fast_greedy(net_connected)
+node_num <- igraph::vcount(net)
+edge_num <- igraph::ecount(net)
+average_degree <- mean(igraph::degree(net))
+clustering_coefficient <- igraph::transitivity(net, type = "average")
+fc <- igraph::cluster_fast_greedy(net)
 modularity_value <- igraph::modularity(fc)
-
-network_density <- igraph::edge_density(net_connected)
-
-average_path_length <- igraph::mean_distance(
-  net_connected,
-  directed = FALSE,
-  unconnected = TRUE
-)
-
-network_diameter <- igraph::diameter(
-  net_connected,
-  directed = FALSE,
-  unconnected = TRUE
-)
+network_density <- igraph::edge_density(net)
+average_path_length <- igraph::mean_distance(net)
+network_diameter <- igraph::diameter(net)
+    
 
 return(data.frame(
   sample_size = sample_size,

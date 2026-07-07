@@ -45,7 +45,7 @@ analyze_network_topology <- function(work_dir,
                                      predict_end_size = NULL,
                                      run_ar1 = FALSE,
                                      ar1_input_file = NULL,
-                                     ar1_windows = c(15)
+                                     ar1_windows = c(15),
                                      ar1_start_size = NULL) {
 
   setwd(work_dir)

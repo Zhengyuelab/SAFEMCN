@@ -574,8 +574,30 @@ fit_exp3P <- function(x, y) {
 
       # --- AR1 helper functions ---
       AR_func <- function(a1, a2) {
-        std_a1 <- sd(a1)
-        std_a2 <- sd(a2)
+
+      pop_sd <- function(x) {
+  x <- x[is.finite(x)]
+  if (length(x) == 0) return(NA_real_)
+  sqrt(mean((x - mean(x))^2))
+}
+
+AR_func <- function(a1, a2) {
+  ok <- is.finite(a1) & is.finite(a2)
+  a1 <- a1[ok]
+  a2 <- a2[ok]
+
+  if (length(a1) == 0 || length(a2) == 0) return(NA_real_)
+
+  std_a1 <- pop_sd(a1)
+  std_a2 <- pop_sd(a2)
+
+  if (is.na(std_a1) || is.na(std_a2) || std_a1 == 0 || std_a2 == 0) {
+    return(0)
+  }
+
+  mean(((a1 - mean(a1)) / std_a1) * ((a2 - mean(a2)) / std_a2))
+}
+        
         if (std_a1 == 0 || std_a2 == 0) return(0)
         value <- mean(((a1 - mean(a1)) / std_a1) * ((a2 - mean(a2)) / std_a2))
         return(value)
